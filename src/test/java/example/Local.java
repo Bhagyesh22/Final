@@ -16,6 +16,10 @@ public class Local {
 	 public static final String AUTOMATE_KEY = "bQc9V5scoYwsAqxRnUvc";
 	  
 	 public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+
+	 public static final String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL");
+
+	 public static final String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 	
 	
 	
@@ -25,7 +29,7 @@ public class Local {
 	  
 	  DesiredCapabilities caps = new DesiredCapabilities();
 	  
-	  caps.setCapability("browserstack.local", "true");
+	  caps.setCapability("browserstack.local", browserstackLocal);
 	  
 	  caps.setCapability("os_version", "7.0");
 	  
@@ -35,7 +39,7 @@ public class Local {
 	  
 	  caps.setCapability("project", "Amazon");
 		      
-	  caps.setCapability("build", System.getenv("BROWSERSTACK_BUILD_NAME"));
+	  caps.setCapability("build", buildName);
 
 	  
 	  
